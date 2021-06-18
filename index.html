@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja"">
+  <head>
+    <meta charset="utf-8">
+    <title>Sitemap Converter</title>
+    <style media="screen">
+    textarea {
+      font-size: 14px;
+    }
+    button {
+      border: 1px solid #000;
+      background: #eee;
+      font-size:16px;
+      padding: 5px 10px;
+    }
+    #alertBox {
+      font-size: 12px;
+      color: #444;
+      width: 100%;
+      padding: 20px 0;
+      background-color: #ffff9d;
+      text-align: center;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      opacity: 1;
+      transition:all 0.5s; '
+    }
+    #wrap{
+      width:800px;
+      border: none;
+      padding: 0px;
+      margin: 0px auto;
+    }
+    h1{
+        text-align: center;
+        font-size: 36px;
+        font-family: "Myriad Pro";
+        color: steelblue;
+        font-weight:900;
+    }
+    div#wrap_left, div#wrap_right{
+      display: inline-block;
+      width: 380px;
+      margin:0 5px;
+      padding:0px;
+      border: none;
+    }
+    textarea{
+      width: calc(100% - 12px);
+      border-radius: 5px;
+      border: 1px solid #999;
+      height: 400px;
+      padding: 5px;
+      font-family:"Noto Sans CJK JP";
+    }
+    button{
+      border: none;
+      font-size:14px;
+      border-radius:3px;
+      width: 120px;
+      font-family:"Noto Sans CJK JP";
+    }
+    button.button1{
+      background: steelblue;
+      color: #fff;
+    }
+    button.button2{
+      background: #fff;
+      border: 1px solid steelblue;
+      color: steelblue;
+    }
+    button:hover{
+      background: lightsteelblue;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+// CSVを配列に格納する
+ $(function(){
+    $('#convert').click(function(){
+
+    //改行ごとに配列化
+    var rawText1 = $('#input').val()
+        .replace(/"url","Title","Priority","Change frequency"\n/g,'')//タイトル行を消す
+        .replace(/,[^,]*,[^,]*(\n|$)/g, '$1');//priorityとfrequencyを消す。
+    var arr =　rawText1.split('\n');  // 1行ずつ1次元配列に変換
+    //1次元配列を2次元配列に変換
+    var res = [];
+    var convertedText = '';
+    for (var i = 0; i < arr.length; i++ ){
+        if (arr[i] == '') break; //空白行が出てきた時点で終了
+        arr[i] = arr[i].replace(/^\"(.*)\"$/g,'$1'); //最初と最後のクォートを消す
+        res[i] = arr[i].split('\",\"'); // "," ごとに配列化
+        res[i].push(res[i][0]); // urlを末尾に追加
+        res[i][2] = res[i][2].replace(/([^\/])\/([^(\/|\n\$)])/g,'$1\/\t$2');  //url列をスラッシュで区切る
+        convertedText += res[i][0]  +'\t' + res[i][1]  + '\t' + res[i][2] + '\n';  //タブ区切りテキスト化する
+        }
+       $('#output1').val(convertedText);
+    });
+  });
+
+    // メッセージを出す
+    function showMsg(){
+      alertBox = document.createElement("div");
+      alertBox.classList.add("appear");
+      alertBox.id = "alertBox";
+      alertBox.textContent = 'Copied!';
+      document.body.appendChild(alertBox);
+    }
+    // メッセージを消す
+    function fadeOut(){
+      alertBox.style.cssText+="opacity: 0;";
+    }
+    function removeMsg() {
+      document.body.removeChild(alertBox);
+    }
+
+    // コピーボタンを押すと、右のテキストエリアが全選択され、コピー。
+    // コピーされました のメッセージが出て、その後自動的に消える
+    $(function(){
+      $('#copyOutput1').click(function(){
+        // 全選択してコピー
+        $('#output1').select();
+        document.execCommand('copy');
+        // メッセージが出て、消える
+        showMsg();
+        setTimeout('fadeOut()', 500);
+        setTimeout('removeMsg()', 1000);
+      });
+    });
+    </script>
+</head>
+<body>
+
+<div id="wrap">
+
+  <h1>Sitemap Converter</h1>
+  <div id="wrap_left">
+    <textarea id="input" placeholder="1. Paste here the CSV exported from Integrity"></textarea>
+    <p style="text-align: center">
+      <button class="button1" type="button" id="convert">2. Convert</button>
+    </p>
+  </div>
+  <div id="wrap_right">
+    <textarea id="output1" placeholder="3. Converted data will appear here"></textarea>
+    <p style="text-align: center">
+      <button class="button2" type="button" id="copyOutput1">4. Copy</button>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
