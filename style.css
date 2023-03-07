@@ -1,0 +1,195 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+body {
+  font-family: "SF Pro";
+  padding: 0;
+  margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+header, main, footer {
+  margin: 0;
+  width: 100%;
+}
+
+.contentsWapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 24px 0;
+  border-bottom: 1px solid #DCDCDC;
+}
+header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #EB503C;
+  margin: 0;
+}
+
+main {
+  padding: 80px 0;
+  min-height: calc(100vh - 177px);
+}
+main .contentsWapper {
+  margin: 0px auto;
+  height: 100%;
+  display: flex;
+  gap: 40px;
+}
+main #input {
+  height: calc(100vh - 400px);
+  box-shadow: 0 0 13px 0 rgba(117, 117, 117, 0.37);
+  border-radius: 8px;
+  flex: 1;
+  position: relative;
+}
+main #input #area_input {
+  height: 100%;
+  width: 100%;
+  background: #FDFDFD;
+  border: 0;
+  border-radius: 8px;
+  padding: 16px 24px;
+  background: #fff;
+  color: #4D4D58;
+  resize: none;
+}
+main #input #area_input:focus {
+  outline: 2px solid #EB503C;
+}
+main #input #area_input::-moz-placeholder {
+  color: #98989E;
+}
+main #input #area_input::placeholder {
+  color: #98989E;
+}
+main #input #button_clear {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+main #input #button_clear::after {
+  font-family: "Material Symbols Rounded";
+  content: "\e5cd";
+  font-size: 32px;
+  line-height: 1;
+  color: #98989E;
+}
+main #input #button_clear:hover::after {
+  color: #E6A8A0;
+}
+main #input #button_convert {
+  border: 0;
+  border-radius: 40px;
+  background-color: #EB503C;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right: -60px;
+  top: calc(50% - 40px);
+  box-shadow: 0px 0px 13px rgba(235, 80, 60, 0.37);
+  z-index: 1;
+}
+main #input #button_convert::after {
+  font-family: "Material Symbols Rounded";
+  content: "\e5e1";
+  font-size: 40px;
+  line-height: 80px;
+  position: relative;
+  left: 3px;
+  color: #fff;
+}
+main #input #button_convert:hover {
+  box-shadow: 0px 0px 14px rgba(164, 58, 44, 0.74);
+}
+main #output {
+  flex: 1;
+  position: relative;
+}
+main #output #area_output {
+  height: 100%;
+  width: 100%;
+  padding: 16px 24px;
+  background-color: #F4F4F4;
+  border: 2px solid #DCDCDC;
+  box-shadow: 0px 0px 13px rgba(117, 117, 117, 0.37);
+  border-radius: 8px;
+  color: #72727A;
+  resize: none;
+}
+main #output #area_output:focus {
+  outline: 2px solid #EB503C;
+}
+main #output #button_copy {
+  border: 0;
+  background-color: rgba(244, 244, 244, 0.7);
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  height: 48px;
+  width: 48px;
+  border-radius: 8px;
+  text-align: center;
+}
+main #output #button_copy::after {
+  font-family: "Material Symbols Rounded";
+  content: "\e14d";
+  font-size: 32px;
+  line-height: 48px;
+  color: #EB503C;
+}
+main #output #button_copy:hover {
+  background-color: #E9E9EB;
+}
+main #output #message {
+  padding: 12px 40px;
+  color: #282836;
+  width: 160px;
+  position: absolute;
+  bottom: 24px;
+  left: calc(50% - 80px);
+  background-color: #FDFDFD;
+  box-shadow: 0px 0px 13px rgba(117, 117, 117, 0.37);
+  border-radius: 8px;
+  text-align: center;
+}
+
+footer {
+  padding: 48px 0;
+  background-color: #282836;
+}
+footer .contentsWapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+footer .footer_logo {
+  height: 24px;
+}
+footer a:hover {
+  opacity: 0.6;
+}
+footer .footer_credit {
+  text-transform: uppercase;
+  color: #FDFDFD;
+  opacity: 0.8;
+  font-size: 14px;
+}/*# sourceMappingURL=style.css.map */
