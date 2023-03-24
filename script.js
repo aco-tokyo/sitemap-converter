@@ -10,14 +10,13 @@ const output = document.getElementById('output');
 button_convert.addEventListener('click', () => {
     const rawText = area_input.value;
     const TrimmedRawText = rawText
-        //  あれ？ 実はタイトル行は消さなくても良いのでは？
         .replace(/"url","Title","Priority","Change frequency"\n/g,'') //タイトル行を消す
         .replace(/,[^,]*,[^,]*(\n|$)/g, '$1'); //priority列とfrequency列を消す
     let arr1 = TrimmedRawText
         .split('\n'); // 1行ずつ配列に格納する
     arr1.sort();  // ソートする（＝URL順になる）
     let arr2 = [];
-    let convertedText = '';
+    let convertedText = 'URL\tTitle\tRoot\tL2\tL3\tL4\tL5\n'; //ヘッダ行
     for (let i = 0; i < arr1.length; i++ ){
         arr1[i] = arr1[i].replace(/^\"(.*)\"$/g,'$1'); //最初と最後のクォートを消す
         arr2[i] = arr1[i].split('\",\"') // "," ごとに配列化。{url, title} になる
