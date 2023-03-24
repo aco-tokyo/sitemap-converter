@@ -5,8 +5,6 @@
     <title>Sitemap Converter</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="script.js"></script>
 </head>
 <body>
 
@@ -19,12 +17,12 @@
   <div class="contentsWapper">
     <div id="input">
       <textarea id="area_input" placeholder="Paste here the CSV exported from Integrity Plus." autofocus></textarea>
-      <button area-label="Clear" id="button_clear"></button>
-      <button area-label="Conver" id="button_convert"></button>
+      <button aria-label="Clear" id="button_clear"></button>
+      <button aria-label="Conver" id="button_convert"></button>
     </div>
     <div id="output">
       <textarea id="area_output" readonly></textarea>
-      <button area-label="Copy" id="button_copy"></button>
+      <button aria-label="Copy" id="button_copy"></button>
       <!-- <div id="message">Copied!</div> -->
     </div>
   </div>
@@ -35,5 +33,7 @@
     <span class="footer_credit">Design Consulting Studio 東京</span>
   </div>
 </footer>
+<script src="script.js"></script>
+
 </body>
 </html>
