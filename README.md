@@ -1,8 +1,8 @@
 # Sitemap Converter
 
-Integrity Plusから出力したCSVファイルを、
+[Integrity Plus](https://apps.apple.com/jp/app/integrity-plus/id963582854?mt=12)から出力したCSVファイルを、
 
-| URL                      | Title | 階層1                | 階層2 | 階層3 |
+| URL                      | Title | Root                | L2 | L3 |
 | ------------------------ | ----- | -------------------- | ----- | ----- |
 | https://example.com/     | Root  | https://example.com/ |       |       |
 | https://example.com/a/   | A     | https://example.com/ | a/    |       |
