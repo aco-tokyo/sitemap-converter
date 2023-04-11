@@ -1,14 +1,14 @@
 # Sitemap Converter
 
-Integrity Plusから出力したCSVファイルを、
+[Integrity Plus](https://apps.apple.com/jp/app/integrity-plus/id963582854?mt=12)から出力したCSVファイルを、
 
-| URL                      | Title | 階層1                | 階層2 | 階層3 |
+| URL                      | Title | Root                | L2 | L3 |
 | ------------------------ | ----- | -------------------- | ----- | ----- |
 | https://example.com/     | Root  | https://example.com/ |       |       |
 | https://example.com/a/   | A     | https://example.com/ | a/    |       |
 | https://example.com/a/b/ | B     | https://example.com/ | a/    | b/    |
 
-の形式に変換するコンバーターです。
+の形式のTSVデータに変換するコンバーターです。
 
 スプレッドシートアプリで開くとこうなります：
 ![](https://aco-tokyo.com/wp-aco/wp-content/uploads/2019/09/one-minute-sitemap_10.png)
