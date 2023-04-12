@@ -11,6 +11,8 @@ button_convert.addEventListener('click', () => {
     const rawText = area_input.value;
     const arr1 = rawText.split('\n') // 1行ずつ配列に格納する
     arr1.shift(); // ヘッダ行の分を削除
+    const arr1 = rawText.split('\n') // 1行ずつ配列に格納する
+    arr1.shift(); // ヘッダ行の分を削除
     arr1.sort();  // ソートする（＝URL順になる）
     let convertedText = 'URL\tTitle\tRoot\tL2\tL3\tL4\tL5\tL6\n'; //ヘッダ行
     for (let i = 0; i < arr1.length; i++ ){
