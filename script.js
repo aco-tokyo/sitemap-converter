@@ -20,7 +20,7 @@ button_convert.addEventListener('click', () => {
             array_byComma.splice(2, array_byComma.length - 2); //URLとTitle以外を削除し、[URL, Title] だけにする
             array_byComma.push(array_byComma[0]); // URLを複製して末尾に追加
             array_byComma[2] = array_byComma[2].replace(/([^\/])\/([^(\/|\n\$)])/g,'$1\/\t$2');  //末尾の方のURLに、スラッシュごとにtab文字を挿入
-            text_output += `\n` + array_byComma[0]  +'\t' + array_byComma[1]  + '\t' + array_byComma[2] + '\n';  //タブ区切りテキスト化する
+            text_output += `\n${array_byComma[0]}\t${array_byComma[1]}\t${array_byComma[2]}\n` //タブ区切りテキスト化する
         // }  
     }
     area_output.value = text_output;
