@@ -14,14 +14,12 @@ button_convert.addEventListener('click', () => {
     array_byLine.sort();  // ソートする（＝URL順になる）
     let text_output = `URL\tTitle\tRoot\tL2\tL3\tL4\tL5\tL6`; //新ヘッダ行
     for (let i = 0; i < array_byLine.length; i++ ){
-        // if (array_byLine[i] !== ''){ //空白行を無視する
-            array_byLine[i] = array_byLine[i].replace(/^\"(.*)\"$/g,'$1'); //最初と最後のクォートを消す
-            const array_byComma = array_byLine[i].split('\",\"') // "," ごとに配列化し、[URL, Title, xxx, xxx, ...] を作る
-            array_byComma.splice(2, array_byComma.length - 2); //URLとTitle以外を削除し、[URL, Title] だけにする
-            array_byComma.push(array_byComma[0]); // URLを複製して末尾に追加
-            array_byComma[2] = array_byComma[2].replace(/([^\/])\/([^(\/|\n\$)])/g,'$1\/\t$2');  //末尾の方のURLに、スラッシュごとにtab文字を挿入
-            text_output += `\n${array_byComma[0]}\t${array_byComma[1]}\t${array_byComma[2]}\n` //タブ区切りテキスト化する
-        // }  
+        array_byLine[i] = array_byLine[i].replace(/^\"(.*)\"$/g,'$1'); //最初と最後のクォートを消す
+        const array_byComma = array_byLine[i].split('\",\"') // "," ごとに配列化し、[URL, Title, xxx, xxx, ...] を作る
+        array_byComma.splice(2, array_byComma.length - 2); //URLとTitle以外を削除し、[URL, Title] だけにする
+        array_byComma.push(array_byComma[0]); // URLを複製して末尾に追加
+        array_byComma[2] = array_byComma[2].replace(/([^\/])\/([^(\/|\n\$)])/g,'$1\/\t$2');  //末尾の方のURLに、スラッシュごとにtab文字を挿入
+        text_output += `\n${array_byComma[0]}\t${array_byComma[1]}\t${array_byComma[2]}\n` //タブ区切りテキスト化する
     }
     area_output.value = text_output;
 });
