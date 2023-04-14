@@ -8,7 +8,7 @@ const button_copy = document.getElementById('button_copy');
 const output = document.getElementById('output');
 
 button_convert.addEventListener('click', () => {
-    const text_input = area_input.value.trim();
+    const text_input = area_input.value.trim(); // 末尾の余分な改行を除去する
     const array_byLine = text_input.split('\n') // 1行ずつ配列に格納する
     array_byLine.shift(); // ヘッダ行の分を削除
     array_byLine.sort();  // ソートする（＝URL順になる）
